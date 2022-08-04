@@ -101,6 +101,13 @@ function addTodo(title, completed) {
 function saveTodo() 
 {
   const data = [];
+  if(todoCtn.childElementCount === 0)
+  {
+      const dataStr = JSON.stringify(data);
+      localStorage.setItem("todoListData", dataStr);
+      return ;
+  }
+  
   for (const todoDiv of todoCtn.children) 
   {
     const todoObj = {};
